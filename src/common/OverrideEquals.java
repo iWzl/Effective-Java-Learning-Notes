@@ -7,6 +7,9 @@ package common;
  * @create: 2018-12-27 10:14
  **/
 public class OverrideEquals {
+    public static void main(String[] args) {
+        System.out.println(new OverrideEquals().equals(new String("XXXX")));
+    }
     //todo 覆盖equals的通用约定
     /* 1. 不该覆盖equals的情况：
      *    类的每个实例本质都是唯一的，不关心类是否提供了“逻辑相等”的测试功能。
@@ -44,7 +47,7 @@ public class OverrideEquals {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == null || obj instanceof OverrideEquals){
+        if(!(obj instanceof OverrideEquals)){
             //使用getClass测试代替instanceof测试，可以扩展实例化的类和证件新的值组件，同时保留equals约定
             //只有当对象具有实现的时候才能使对象等同
             return false;
