@@ -16,7 +16,27 @@ public class SmallestClass {
      * 6. 设计类要尽可能降低类的可访问性，除了公有静态final域的特殊情况外，公有类都不应该包含公有域。并且要确保final域所引用的对象都是不可变的。
      */
 
-    public static void main(String[] args) {
+    /**只能在声明该成员的顶层类的内部才能使用*/
+    private int a = 1;
+    /**声明该成员的包内部的任何类都能访问(缺省)*/
+    String b = "b";
+    /**声明该成员的类的之类都可以访问这个成员，但是有一些限制，该成员的包类的内部的任何类都可以访问这个成员*/
+    protected double c = 3.0;
+    /**在任何地方都能访问这个成员*/
+    public char d = 'd';
 
+
+    public static void main(String[] args) {
+        System.out.println(new SmallestClass().toString());
+    }
+
+    @Override
+    public String toString() {
+        return "SmallestClass{" +
+                "a=" + a +
+                ", b='" + b + '\'' +
+                ", c=" + c +
+                ", d=" + d +
+                '}';
     }
 }
